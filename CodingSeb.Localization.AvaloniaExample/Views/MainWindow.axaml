@@ -18,17 +18,17 @@
 
      <DockPanel Margin="10">
         <DockPanel DockPanel.Dock="Top" VerticalAlignment="Top" LastChildFill="True">
-            <Label x:Name="lblCurrentLanguage" 
+            <Label x:Name="lblCurrentLanguage"
                    DockPanel.Dock="Left"
 				   VerticalAlignment="Center"
                    Content="{Tr}" />
-            <Button x:Name="LanguageChangedRefreshButton" 
+            <Button x:Name="LanguageChangedRefreshButton"
                     DockPanel.Dock="Right"
                     Content="Refresh"
                     Click="LanguageChangedRefreshButton_Click" />
             <ComboBox x:Name="cbLanguageSelection"
 					  HorizontalAlignment="Stretch"
-                      Items="{Binding LanguagesManager.AvailableLanguages}" 
+                      ItemsSource="{Binding LanguagesManager.AvailableLanguages}"
                       SelectedItem="{Binding LanguagesManager.CurrentLanguage}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -43,32 +43,32 @@
 		 <StackPanel>
             <StackPanel Orientation="Horizontal" >
                 <StackPanel>
-                    <Label x:Name="lblHelloInCurrentLanguageEn" 
+                    <Label x:Name="lblHelloInCurrentLanguageEn"
                            Content="{Tr IsDynamic=False, LanguageId='en', TextId='HelloInCurrentLanguage'}" />
-                    <Label x:Name="lblHelloInCurrentLanguageFr" 
+                    <Label x:Name="lblHelloInCurrentLanguageFr"
                            Content="{Tr IsDynamic=False, LanguageId='fr', TextId='HelloInCurrentLanguage'}" />
-                    <Label x:Name="lblHelloInCurrentLanguageEs" 
+                    <Label x:Name="lblHelloInCurrentLanguageEs"
                            Content="{Tr IsDynamic=False, LanguageId='es', TextId='HelloInCurrentLanguage'}" />
                 </StackPanel>
-                <Label BorderBrush="Black" 
-                       BorderThickness="1" 
-                       x:Name="lblHelloInCurrentLanguage" 
+                <Label BorderBrush="Black"
+                       BorderThickness="1"
+                       x:Name="lblHelloInCurrentLanguage"
                        Content="{Tr 'HelloInCurrentLanguage'}"
                        ToolTip.Tip="{Tr}"
                        VerticalAlignment="Center" Margin="5,0"/>
             </StackPanel>
 			  <ComboBox x:Name="TextComboBox"
 						HorizontalAlignment="Stretch"
-                        Items="{Binding Labels}"
+                        ItemsSource="{Binding Labels}"
                         SelectedItem="{Binding Label}"/>
-            <Label BorderBrush="Black" BorderThickness="1" 
+            <Label BorderBrush="Black" BorderThickness="1"
 				   HorizontalAlignment="Stretch"
                    Content="{Binding Label, Converter={TrTextIdConverter DefaultText='DefaultText'}}"/>
             <Label Content="{Tr TypeSomething}" />
             <TextBox x:Name="InputTextBox" />
             <TextBlock Text="{Tr Activate}" />
-            <Label BorderBrush="Black" 
-                       BorderThickness="1" 
+            <Label BorderBrush="Black"
+                       BorderThickness="1"
                        Content="{Tr TextId='YouTypedInTheTextBox', StringFormatArgBinding={Binding Text, ElementName=InputTextBox}}"
                        VerticalAlignment="Center" Margin="5,0"/>
             <TextBlock>
@@ -89,7 +89,7 @@
                 <TextBlock VerticalAlignment="Center"
 					Text="{MultiTr TheCheckBoxIs, {Binding IsChecked, ElementName=DemoCheckBox, Converter={conv:BoolToStringConverter FalseValue=Activated, TrueValue=Deactivated}}, Separator=': '}" />
             </WrapPanel>
-            <ListBox Items="{Binding Items}">
+            <ListBox ItemsSource="{Binding Items}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -112,6 +112,6 @@
 			 </StackPanel>
 	    </StackPanel>
 	</DockPanel>
-	
-	
+
+
 </Window>
